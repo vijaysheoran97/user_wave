@@ -1,2 +1,9 @@
 String appBarName = 'User';
 String userAppBarName = 'User Details';
+String searchText = 'Search';
+String userName = 'User Name';
+String email = 'Email';
+String phone = 'Phone';
+String address = 'Address';
+String street = 'Street';
+String city = 'City';

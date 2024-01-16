@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:user_wave/user/model/address_model.dart';
 import 'package:user_wave/user/model/user_information_model.dart';
+import 'package:user_wave/util/color_const.dart';
 import 'package:user_wave/util/string_const.dart';
 
 class UserDetails extends StatefulWidget {
@@ -19,20 +20,23 @@ class _UserDetailsState extends State<UserDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
               bottomRight: Radius.circular(24),
               bottomLeft: Radius.circular(24)),
         ),
-        backgroundColor: Colors.blue,
-        title: Text(userAppBarName, style: TextStyle(color: Colors.white)),
+        backgroundColor: appBarColor,
+        title: Text(
+          userAppBarName,
+          style: const TextStyle(color: appBarTextColor, fontSize: 20),
+        ),
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back,
-            color: Colors.white,
+            color: backIconArrowColor,
           ),
         ),
       ),
@@ -42,31 +46,65 @@ class _UserDetailsState extends State<UserDetails> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ListTile(
-              leading: Icon(Icons.person),
-              title: Text('User Name'),
+              leading: const Icon(
+                Icons.person,
+                size: 28,
+              ),
+              title: Text(
+                userName,
+                style: const TextStyle(fontWeight: FontWeight.w500),
+              ),
               subtitle: Text(widget.userInformation.username.toString()),
             ),
             ListTile(
-              leading: Icon(Icons.email_outlined),
-              title: Text('Email'),
+              leading: const Icon(
+                Icons.email_outlined,
+                size: 28,
+              ),
+              title: Text(
+                email,
+                style: const TextStyle(fontWeight: FontWeight.w500),
+              ),
               subtitle: Text(widget.userInformation.email.toString()),
             ),
             ListTile(
-              leading: Icon(Icons.phone),
-              title: Text('Phone'),
+              leading: const Icon(
+                Icons.phone,
+                size: 28,
+              ),
+              title: Text(
+                phone,
+                style: const TextStyle(fontWeight: FontWeight.w500),
+              ),
               subtitle: Text(widget.userInformation.phone.toString()),
             ),
-            Divider(),
-            ListTile(title: Text('Address')),
+            const Divider(),
             ListTile(
-              leading: Icon(Icons.location_pin),
-              title: Text('Street'),
+                title: Text(
+              address,
+              style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+            )),
+            ListTile(
+              leading: const Icon(
+                Icons.location_pin,
+                size: 28,
+              ),
+              title: Text(
+                street,
+                style: const TextStyle(fontWeight: FontWeight.w500),
+              ),
               subtitle:
                   Text(widget.userInformation.address!.street.toString() ?? ''),
             ),
             ListTile(
-              leading: Icon(Icons.location_city),
-              title: Text('City'),
+              leading: const Icon(
+                Icons.location_city,
+                size: 28,
+              ),
+              title: Text(
+                city,
+                style: const TextStyle(fontWeight: FontWeight.w500),
+              ),
               subtitle:
                   Text(widget.userInformation.address!.city.toString() ?? ''),
             ),
